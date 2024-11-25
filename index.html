@@ -103,6 +103,12 @@ body {
   border-radius: 10px;
   object-fit: cover;
   margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.grid-image:hover {
+  transform: scale(1.05);
 }
 
 #ui .grid-image {
@@ -122,6 +128,22 @@ body {
   color: #666;
   font-size: 0.9rem;
   margin-top: 0.5rem;
+}
+
+@keyframes clickExpand {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.image-click {
+  animation: clickExpand 0.3s ease;
 }
 </style>
 </head>
@@ -170,15 +192,15 @@ body {
         <p>WanderSync is an Android app built in Java. We utilize Firebase for user storage and authentication. The app starts off in the main screen where it takes the user to the login page. From there, the user can either login or create an account, and when the user has a valid account, the app takes the user to the main application. There is a main activity that holds the entire state of the app, and the different areas of the app are android fragments where the user can navigate to through the drawer button. There is a sign out button on the top app bar where the user can sign out of. When the user logs in the app fetches the user data from the database and populates all the entries and the user can also add modified data to the database through forms. This makes for a chronological flow of logic. In addition, we utilize the MVVM design pattern to organize the main parts of the app. The UI is completely handled by activities and fragments, where it gets the data from view models which provide a simple interface to retrieve and observe on such data. The bulk of the data processing and storage is handled in the models, which is where database calls are organized and user data is stored for view models to retrieve.</p>
         <div class="image-grid">
             <div class="grid-image-container">
-                <img class="grid-image" alt="Modern microservices architecture diagram showing containerized services, API gateway, and database clusters, technical illustration style" src="./dcd.png" width="800" height="400">
+                <img class="grid-image" alt="Modern microservices architecture diagram showing containerized services, API gateway, and database clusters, technical illustration style" src="./dcd.png" width="800" height="400" onclick="openImage('./dcd.png')">
                 <p class="image-caption">Class diagram</p>
             </div>
             <div class="grid-image-container">
-                <img class="grid-image" alt="System design overview showing cloud infrastructure with connected nodes and data flow, technical blueprint style" src="./sd.png" width="400" height="200">
+                <img class="grid-image" alt="System design overview showing cloud infrastructure with connected nodes and data flow, technical blueprint style" src="./sd.png" width="400" height="200" onclick="openImage('./sd.png')">
                 <p class="image-caption">System Diagram for the Add Dining Reservation functionality.</p>
             </div>
             <div class="grid-image-container">
-                <img class="grid-image" alt="Data flow diagram with interconnected services and event streams, minimalist technical illustration" src="./dm.png" width="400" height="200">
+                <img class="grid-image" alt="Data flow diagram with interconnected services and event streams, minimalist technical illustration" src="./dm.png" width="400" height="200" onclick="openImage('./dm.png')">
                 <p class="image-caption">Early-stage domain model diagram.</p>
             </div>
         </div>
@@ -189,15 +211,15 @@ body {
         <p>In our app we feature a simple and sleek design that is tailored to the user experience. We forego cluttered UI and make the main functionality presented clear and intuitive. We use Google's Material UI library for android for neater looking UI elements. </p>
         <div class="image-grid">
             <div class="grid-image-container">
-                <img class="grid-image" alt="Modern mobile app interface mockup with clean design and travel-focused features, UI design" src="./ui1.png" width="200" height="400">
+                <img class="grid-image" alt="Modern mobile app interface mockup with clean design and travel-focused features, UI design" src="./ui1.png" width="200" height="400" onclick="openImage(this.src)">
                 <p class="image-caption">Destination screen</p>
             </div>
             <div class="grid-image-container">
-                <img class="grid-image" alt="Responsive mobile view of WanderSync showing map interface and user profiles, app screenshot style" src="./ui2.png" width="200" height="400">
+                <img class="grid-image" alt="Responsive mobile view of WanderSync showing map interface and user profiles, app screenshot style" src="./ui2.png" width="200" height="400" onclick="openImage(this.src)">
                 <p class="image-caption">Community screen</p>
             </div>
             <div class="grid-image-container">
-                <img class="grid-image" alt="Component library showcase with various UI elements and material design implementation, design system style" src="./ui3.png" width="200" height="400">
+                <img class="grid-image" alt="Component library showcase with various UI elements and material design implementation, design system style" src="./ui3.png" width="200" height="400" onclick="openImage(this.src)">
                 <p class="image-caption">Dining screen</p>
             </div>
 		
@@ -208,21 +230,7 @@ body {
 
     <section id="reflections" class="content-section">
         <h2>Reflections</h2>
-        <p>fsjfsd</p>
-        <div class="image-grid">
-            <div class="grid-image-container">
-                <img class="grid-image" alt="Team collaboration meeting with developers discussing project details, candid office photo" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format" width="400" height="200">
-                <p class="image-caption">Team Collaboration Sessions</p>
-            </div>
-            <div class="grid-image-container">
-                <img class="grid-image" alt="Sprint review session with team members analyzing project progress on whiteboard, modern office setting" src="https://images.unsplash.com/photo-1531498860502-7c67cf02f657?w=800&auto=format" width="400" height="200">
-                <p class="image-caption">Sprint Planning and Review</p>
-            </div>
-            <div class="grid-image-container">
-                <img class="grid-image" alt="Project timeline visualization with milestones and progress tracking, digital dashboard style" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format" width="400" height="200">
-                <p class="image-caption">Project Timeline and Milestones</p>
-            </div>
-        </div>
+        <p>dfsdfsdfsdfsdf</p>
     </section>
 
     <script>
@@ -252,5 +260,25 @@ body {
             member.style.transition = 'all 0.5s ease-out';
             observer.observe(member);
         });
+
+        // Updated function to handle image clicks
+        function openImage(src) {
+            // Find the clicked image
+            const clickedImage = document.querySelector(`img[src="${src}"]`);
+            
+            if (clickedImage) {
+                // Add click animation
+                clickedImage.classList.add('image-click');
+                
+                // Remove animation class after it completes
+                setTimeout(() => {
+                    clickedImage.classList.remove('image-click');
+                }, 300);
+
+                // Open image in new tab using full URL
+                const fullUrl = new URL(src, window.location.href).href;
+                window.open(fullUrl, '_blank');
+            }
+        }
     </script>
 </body></html>
