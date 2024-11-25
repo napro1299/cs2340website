@@ -1,0 +1,206 @@
+<html><head><base href="." />
+<title>WanderSync - Team Project</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.navbar {
+  background-color: #2c3e50;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #3498db;
+}
+
+.hero {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.team-section {
+  padding: 3rem 2rem;
+  background: white;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.team-member {
+  text-align: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+.content-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-section h2 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 200px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+</style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#ui">UI</a></li>
+            <li><a href="#reflections">Reflections</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>WanderSync</h1>
+        <p>Synchronize your travel experiences with friends and family</p>
+    </section>
+
+    <section class="team-section">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <h3>Sharan Krishnappan</h3>
+                <p>Developer</p>
+            </div>
+            <div class="team-member">
+                <h3>Nicolas Amato</h3>
+                <p>Developer</p>
+            </div>
+            <div class="team-member">
+                <h3>Norman Wang</h3>
+                <p>Developer</p>
+            </div>
+            <div class="team-member">
+                <h3>Elaine Abella</h3>
+                <p>Developer</p>
+            </div>
+            <div class="team-member">
+                <h3>Krithik Dinakaran</h3>
+                <p>Developer</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="content-section">
+        <h2>Architecture</h2>
+        <p>WanderSync utilizes a modern microservices architecture built on cloud-native principles. Our backend services are containerized using Docker and orchestrated with Kubernetes, ensuring scalability and reliability. The application implements event-driven architecture using Apache Kafka for real-time updates and notifications.</p>
+        <div class="image-grid">
+            <div class="placeholder-image">Architecture Diagram 1</div>
+            <div class="placeholder-image">System Design Overview</div>
+            <div class="placeholder-image">Data Flow Diagram</div>
+        </div>
+    </section>
+
+    <section id="ui" class="content-section">
+        <h2>User Interface</h2>
+        <p>Our UI is designed with user experience at its core, featuring an intuitive navigation system and responsive design that works seamlessly across all devices. We've implemented Material Design principles while maintaining our unique brand identity through custom components and animations.</p>
+        <div class="image-grid">
+            <div class="placeholder-image">UI Mockup 1</div>
+            <div class="placeholder-image">Mobile View</div>
+            <div class="placeholder-image">Component Library</div>
+        </div>
+    </section>
+
+    <section id="reflections" class="content-section">
+        <h2>Reflections</h2>
+        <p>Throughout the development process, our team faced various challenges and learned valuable lessons. We improved our collaborative workflow, implemented agile methodologies effectively, and gained deeper insights into building scalable applications. The project helped us grow both technically and as a team.</p>
+        <div class="image-grid">
+            <div class="placeholder-image">Team Meeting</div>
+            <div class="placeholder-image">Sprint Review</div>
+            <div class="placeholder-image">Project Timeline</div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation to team members on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.team-member').forEach((member) => {
+            member.style.opacity = 0;
+            member.style.transform = 'translateY(20px)';
+            member.style.transition = 'all 0.5s ease-out';
+            observer.observe(member);
+        });
+    </script>
+</body></html>
