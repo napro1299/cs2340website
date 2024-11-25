@@ -18,6 +18,9 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar ul {
@@ -25,6 +28,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 2rem;
+  margin: 0;
 }
 
 .navbar a {
@@ -36,6 +40,52 @@ body {
 
 .navbar a:hover {
   color: #3498db;
+}
+
+.dark-mode-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dark-mode-btn:hover {
+  background: white;
+  color: #2c3e50;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark-mode .team-section,
+.dark-mode .content-section {
+  background: #2d2d2d;
+  color: #ffffff;
+}
+
+.dark-mode .team-member {
+  background: #3d3d3d;
+  color: #ffffff;
+}
+
+.dark-mode .content-section h2 {
+  color: #ffffff;
+}
+
+.dark-mode .image-caption,
+.dark-mode .click-hint {
+  color: #bbbbbb;
+}
+
+.dark-mode .video-container {
+  background: #3d3d3d;
+  color: #ffffff;
 }
 
 .hero {
@@ -130,6 +180,14 @@ body {
   margin-top: 0.5rem;
 }
 
+.click-hint {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
 @keyframes clickExpand {
   0% {
     transform: scale(1);
@@ -145,6 +203,45 @@ body {
 .image-click {
   animation: clickExpand 0.3s ease;
 }
+
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem auto;
+  max-width: 800px;
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.video-container p {
+  margin: 1rem auto;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.video-container iframe {
+  width: 100%;
+  max-width: 720px;
+  height: 405px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  margin: 0 auto;
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -154,6 +251,7 @@ body {
             <li><a href="#ui">UI</a></li>
             <li><a href="#reflections">Reflections</a></li>
         </ul>
+        <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
     </nav>
 
     <section class="hero">
@@ -190,6 +288,7 @@ body {
     <section id="architecture" class="content-section">
         <h2>Architecture</h2>
         <p>WanderSync is an Android app built in Java. We utilize Firebase for user storage and authentication. The app starts off in the main screen where it takes the user to the login page. From there, the user can either login or create an account, and when the user has a valid account, the app takes the user to the main application. There is a main activity that holds the entire state of the app, and the different areas of the app are android fragments where the user can navigate to through the drawer button. There is a sign out button on the top app bar where the user can sign out of. When the user logs in the app fetches the user data from the database and populates all the entries and the user can also add modified data to the database through forms. This makes for a chronological flow of logic. In addition, we utilize the MVVM design pattern to organize the main parts of the app. The UI is completely handled by activities and fragments, where it gets the data from view models which provide a simple interface to retrieve and observe on such data. The bulk of the data processing and storage is handled in the models, which is where database calls are organized and user data is stored for view models to retrieve.</p>
+        <p class="click-hint">Click images to enlarge</p>
         <div class="image-grid">
             <div class="grid-image-container">
                 <img class="grid-image" alt="Modern microservices architecture diagram showing containerized services, API gateway, and database clusters, technical illustration style" src="./dcd.png" width="800" height="400" onclick="openImage('./dcd.png')">
@@ -222,15 +321,27 @@ body {
                 <img class="grid-image" alt="Component library showcase with various UI elements and material design implementation, design system style" src="./ui3.png" width="200" height="400" onclick="openImage(this.src)">
                 <p class="image-caption">Dining screen</p>
             </div>
-		
-			<p>Video showcasing the app functionality:</p>
-          <iframe src="https://drive.google.com/file/d/1ElSul4uFosN2rL0qIBTvfJCnKoQMUM0Y/preview" width="640" height="480" allow="autoplay"></iframe>
+        </div>
+
+        <div class="video-container">
+            <p>Watch our app demonstration video below to see WanderSync in action! This walkthrough showcases the key features including:</p>
+            <ul style="margin: 1rem auto; text-align: left; padding-left: 2rem; max-width: 600px;">
+                <li>User authentication and profile management</li>
+                <li>Creating and managing travel destinations</li>
+                <li>Community features and social interaction</li>
+                <li>Dining reservation system</li>
+                <li>Overall user experience and navigation</li>
+            </ul>
+            <iframe src="https://drive.google.com/file/d/1ElSul4uFosN2rL0qIBTvfJCnKoQMUM0Y/preview" 
+                    allow="autoplay">
+            </iframe>
+            <p style="font-style: italic; margin-top: 1rem; max-width: 600px;">Note: This video demonstrates the latest version of WanderSync, showcasing our implementation of Material Design principles and intuitive user interface.</p>
         </div>
     </section>
 
     <section id="reflections" class="content-section">
         <h2>Reflections</h2>
-        <p>dfsdfsdfsdfsdf</p>
+        <p>fsjfsd</p>
     </section>
 
     <script>
@@ -280,5 +391,38 @@ body {
                 window.open(fullUrl, '_blank');
             }
         }
+
+        // Add this to your existing JavaScript
+        function toggleDarkMode() {
+            const body = document.body;
+            const button = document.querySelector('.dark-mode-btn');
+            
+            body.classList.toggle('dark-mode');
+            
+            // Update button text and icon
+            if (body.classList.contains('dark-mode')) {
+                button.innerHTML = '☀️ Light Mode';
+                // Store the preference
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                button.innerHTML = '🌙 Dark Mode';
+                // Store the preference
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+
+        // Check for saved dark mode preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkMode = localStorage.getItem('darkMode');
+            const button = document.querySelector('.dark-mode-btn');
+            
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                button.innerHTML = '☀️ Light Mode';
+            }
+        });
     </script>
+    <footer class="footer">
+        <p>&copy; 2024 CS2340 Group 3. All rights reserved.</p>
+    </footer>
 </body></html>
