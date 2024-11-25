@@ -93,11 +93,22 @@ body {
   margin-top: 2rem;
 }
 
+.grid-image-container {
+  text-align: center;
+}
+
 .grid-image {
   width: 100%;
   height: 200px;
   border-radius: 10px;
   object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.image-caption {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
 }
 </style>
 </head>
@@ -145,9 +156,18 @@ body {
         <h2>Architecture</h2>
         <p>WanderSync utilizes a modern microservices architecture built on cloud-native principles. Our backend services are containerized using Docker and orchestrated with Kubernetes, ensuring scalability and reliability. The application implements event-driven architecture using Apache Kafka for real-time updates and notifications.</p>
         <div class="image-grid">
-            <img class="grid-image" alt="Modern microservices architecture diagram showing containerized services, API gateway, and database clusters, technical illustration style" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format" width="400" height="200">
-            <img class="grid-image" alt="System design overview showing cloud infrastructure with connected nodes and data flow, technical blueprint style" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format" width="400" height="200">
-            <img class="grid-image" alt="Data flow diagram with interconnected services and event streams, minimalist technical illustration" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format" width="400" height="200">
+            <div class="grid-image-container">
+                <img class="grid-image" alt="Modern microservices architecture diagram showing containerized services, API gateway, and database clusters, technical illustration style" src="https://github.com/napro1299/cs2340website/blob/main/dcd.png" width="400" height="200">
+                <p class="image-caption">Microservices Architecture Overview</p>
+            </div>
+            <div class="grid-image-container">
+                <img class="grid-image" alt="System design overview showing cloud infrastructure with connected nodes and data flow, technical blueprint style" src="https://github.com/napro1299/cs2340website/blob/main/sd.png" width="400" height="200">
+                <p class="image-caption">Cloud Infrastructure Design</p>
+            </div>
+            <div class="grid-image-container">
+                <img class="grid-image" alt="Data flow diagram with interconnected services and event streams, minimalist technical illustration" src="https://github.com/napro1299/cs2340website/blob/main/dm.png" width="400" height="200">
+                <p class="image-caption">Event-Driven Data Flow</p>
+            </div>
         </div>
     </section>
 
@@ -155,9 +175,18 @@ body {
         <h2>User Interface</h2>
         <p>Our UI is designed with user experience at its core, featuring an intuitive navigation system and responsive design that works seamlessly across all devices. We've implemented Material Design principles while maintaining our unique brand identity through custom components and animations.</p>
         <div class="image-grid">
-            <img class="grid-image" alt="Modern mobile app interface mockup with clean design and travel-focused features, UI design" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&auto=format" width="400" height="200">
-            <img class="grid-image" alt="Responsive mobile view of WanderSync showing map interface and user profiles, app screenshot style" src="https://images.unsplash.com/photo-1555421689-491a97ff2040?w=800&auto=format" width="400" height="200">
-            <img class="grid-image" alt="Component library showcase with various UI elements and material design implementation, design system style" src="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=800&auto=format" width="400" height="200">
+            <div class="grid-image-container">
+                <img class="grid-image" alt="Modern mobile app interface mockup with clean design and travel-focused features, UI design" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&auto=format" width="400" height="200">
+                <p class="image-caption">Mobile App Interface Design</p>
+            </div>
+            <div class="grid-image-container">
+                <img class="grid-image" alt="Responsive mobile view of WanderSync showing map interface and user profiles, app screenshot style" src="https://images.unsplash.com/photo-1555421689-491a97ff2040?w=800&auto=format" width="400" height="200">
+                <p class="image-caption">Responsive Map Interface</p>
+            </div>
+            <div class="grid-image-container">
+                <img class="grid-image" alt="Component library showcase with various UI elements and material design implementation, design system style" src="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=800&auto=format" width="400" height="200">
+                <p class="image-caption">Material Design Components</p>
+            </div>
         </div>
     </section>
 
@@ -165,9 +194,18 @@ body {
         <h2>Reflections</h2>
         <p>Throughout the development process, our team faced various challenges and learned valuable lessons. We improved our collaborative workflow, implemented agile methodologies effectively, and gained deeper insights into building scalable applications. The project helped us grow both technically and as a team.</p>
         <div class="image-grid">
-            <img class="grid-image" alt="Team collaboration meeting with developers discussing project details, candid office photo" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format" width="400" height="200">
-            <img class="grid-image" alt="Sprint review session with team members analyzing project progress on whiteboard, modern office setting" src="https://images.unsplash.com/photo-1531498860502-7c67cf02f657?w=800&auto=format" width="400" height="200">
-            <img class="grid-image" alt="Project timeline visualization with milestones and progress tracking, digital dashboard style" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format" width="400" height="200">
+            <div class="grid-image-container">
+                <img class="grid-image" alt="Team collaboration meeting with developers discussing project details, candid office photo" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format" width="400" height="200">
+                <p class="image-caption">Team Collaboration Sessions</p>
+            </div>
+            <div class="grid-image-container">
+                <img class="grid-image" alt="Sprint review session with team members analyzing project progress on whiteboard, modern office setting" src="https://images.unsplash.com/photo-1531498860502-7c67cf02f657?w=800&auto=format" width="400" height="200">
+                <p class="image-caption">Sprint Planning and Review</p>
+            </div>
+            <div class="grid-image-container">
+                <img class="grid-image" alt="Project timeline visualization with milestones and progress tracking, digital dashboard style" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format" width="400" height="200">
+                <p class="image-caption">Project Timeline and Milestones</p>
+            </div>
         </div>
     </section>
 
