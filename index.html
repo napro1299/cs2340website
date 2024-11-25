@@ -21,6 +21,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .navbar ul {
@@ -29,6 +31,9 @@ body {
   justify-content: center;
   gap: 2rem;
   margin: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .navbar a {
@@ -50,6 +55,9 @@ body {
   border-radius: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-left: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .dark-mode-btn:hover {
@@ -288,7 +296,8 @@ body.dark-mode {
     <section id="architecture" class="content-section">
         <h2>Architecture</h2>
         <p>WanderSync is an Android app built in Java. We utilize Firebase for user storage and authentication. The app starts off in the main screen where it takes the user to the login page. From there, the user can either login or create an account, and when the user has a valid account, the app takes the user to the main application. There is a main activity that holds the entire state of the app, and the different areas of the app are android fragments where the user can navigate to through the drawer button. There is a sign out button on the top app bar where the user can sign out of. When the user logs in the app fetches the user data from the database and populates all the entries and the user can also add modified data to the database through forms. This makes for a chronological flow of logic. In addition, we utilize the MVVM design pattern to organize the main parts of the app. The UI is completely handled by activities and fragments, where it gets the data from view models which provide a simple interface to retrieve and observe on such data. The bulk of the data processing and storage is handled in the models, which is where database calls are organized and user data is stored for view models to retrieve.</p>
-        <p class="click-hint">Click images to enlarge</p>
+        <br></br>
+		<p class="click-hint">Click images to enlarge</p>
         <div class="image-grid">
             <div class="grid-image-container">
                 <img class="grid-image" alt="Modern microservices architecture diagram showing containerized services, API gateway, and database clusters, technical illustration style" src="./dcd.png" width="800" height="400" onclick="openImage('./dcd.png')">
