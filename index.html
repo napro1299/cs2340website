@@ -105,6 +105,19 @@ body {
   margin-bottom: 0.5rem;
 }
 
+#ui .grid-image {
+  height: 400px;
+  width: 200px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+#ui .grid-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .image-caption {
   color: #666;
   font-size: 0.9rem;
@@ -154,10 +167,10 @@ body {
 
     <section id="architecture" class="content-section">
         <h2>Architecture</h2>
-        <p>WanderSync utilizes a modern microservices architecture built on cloud-native principles. Our backend services are containerized using Docker and orchestrated with Kubernetes, ensuring scalability and reliability. The application implements event-driven architecture using Apache Kafka for real-time updates and notifications.</p>
+        <p>WanderSync is an Android app built in Java. We utilize Firebase for user storage and authentication. The app starts off in the main screen where it takes the user to the login page. From there, the user can either login or create an account, and when the user has a valid account, the app takes the user to the main application. There is a main activity that holds the entire state of the app, and the different areas of the app are android fragments where the user can navigate to through the drawer button. There is a sign out button on the top app bar where the user can sign out of. When the user logs in the app fetches the user data from the database and populates all the entries and the user can also add modified data to the database through forms. This makes for a chronological flow of logic. In addition, we utilize the MVVM design pattern to organize the main parts of the app. The UI is completely handled by activities and fragments, where it gets the data from view models which provide a simple interface to retrieve and observe on such data. The bulk of the data processing and storage is handled in the models, which is where database calls are organized and user data is stored for view models to retrieve.</p>
         <div class="image-grid">
             <div class="grid-image-container">
-                <img class="grid-image" alt="Modern microservices architecture diagram showing containerized services, API gateway, and database clusters, technical illustration style" src="./dcd.png" width="400" height="200">
+                <img class="grid-image" alt="Modern microservices architecture diagram showing containerized services, API gateway, and database clusters, technical illustration style" src="./dcd.png" width="800" height="400">
                 <p class="image-caption">Class diagram</p>
             </div>
             <div class="grid-image-container">
@@ -173,28 +186,29 @@ body {
 
     <section id="ui" class="content-section">
         <h2>User Interface</h2>
-        <p>Our UI is designed with user experience at its core, featuring an intuitive navigation system and responsive design that works seamlessly across all devices. We've implemented Material Design principles while maintaining our unique brand identity through custom components and animations.</p>
+        <p>In our app we feature a simple and sleek design that is tailored to the user experience. We forego cluttered UI and make the main functionality presented clear and intuitive. We use Google's Material UI library for android for neater looking UI elements. </p>
         <div class="image-grid">
             <div class="grid-image-container">
-                <img class="grid-image" alt="Modern mobile app interface mockup with clean design and travel-focused features, UI design" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&auto=format" width="400" height="200">
-                <p class="image-caption">Mobile App Interface Design</p>
+                <img class="grid-image" alt="Modern mobile app interface mockup with clean design and travel-focused features, UI design" src="./ui1.png" width="200" height="400">
+                <p class="image-caption">Destination screen</p>
             </div>
             <div class="grid-image-container">
-                <img class="grid-image" alt="Responsive mobile view of WanderSync showing map interface and user profiles, app screenshot style" src="https://images.unsplash.com/photo-1555421689-491a97ff2040?w=800&auto=format" width="400" height="200">
-                <p class="image-caption">Responsive Map Interface</p>
+                <img class="grid-image" alt="Responsive mobile view of WanderSync showing map interface and user profiles, app screenshot style" src="./ui2.png" width="200" height="400">
+                <p class="image-caption">Community screen</p>
             </div>
             <div class="grid-image-container">
-                <img class="grid-image" alt="Component library showcase with various UI elements and material design implementation, design system style" src="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=800&auto=format" width="400" height="200">
-                <p class="image-caption">Material Design Components</p>
+                <img class="grid-image" alt="Component library showcase with various UI elements and material design implementation, design system style" src="./ui3.png" width="200" height="400">
+                <p class="image-caption">Dining screen</p>
             </div>
-
+		
+			<p>Video showcasing the app functionality:</p>
           <iframe src="https://drive.google.com/file/d/1ElSul4uFosN2rL0qIBTvfJCnKoQMUM0Y/preview" width="640" height="480" allow="autoplay"></iframe>
         </div>
     </section>
 
     <section id="reflections" class="content-section">
         <h2>Reflections</h2>
-        <p>Throughout the development process, our team faced various challenges and learned valuable lessons. We improved our collaborative workflow, implemented agile methodologies effectively, and gained deeper insights into building scalable applications. The project helped us grow both technically and as a team.</p>
+        <p>fsjfsd</p>
         <div class="image-grid">
             <div class="grid-image-container">
                 <img class="grid-image" alt="Team collaboration meeting with developers discussing project details, candid office photo" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format" width="400" height="200">
